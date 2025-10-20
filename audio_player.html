@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audio Player</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .player-container {
+      background: #181818;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      width: 350px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .banner img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .song-details {
+      padding: 15px;
+    }
+
+    .song-title {
+      font-size: 1.3em;
+      font-weight: 600;
+    }
+
+    .artist-name {
+      font-size: 0.95em;
+      color: #aaa;
+      margin-bottom: 10px;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 15px 0;
+    }
+
+    .controls button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.4em;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .controls button:hover {
+      transform: scale(1.2);
+      color: #1db954;
+    }
+
+    .lyrics {
+      font-size: 0.9em;
+      color: #ccc;
+      padding: 0 20px 20px;
+      text-align: left;
+      line-height: 1.6;
+      max-height: 200px;
+      overflow-y: auto;
+      border-top: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="player-container">
+    <div class="banner">
+      <img src="./cover.jpeg" alt="Banner" />
+    </div>
+    <div class="song-details">
+      <div class="song-title">Netru Endhan Moochinil</div>
+      <div class="artist-name">feat. Aish</div>
+      <audio id="audio" src="./audio.mp3"></audio>
+
+      <div class="controls">
+        <button id="play-pause">▶️</button>
+      </div>
+    </div>
+
+    <div class="lyrics">
+      Haa…aaa….aa..<br />
+      Netru endhan moochinil<br />
+      Un kaadhal allaal kaatru illaiyae<br />
+      Netru endhan moochinil<br />
+      Un kaadhal allaal kaatru illaiyae<br /><br />
+      Netru endhan yettil<br />
+      Sogam enum sollum illaiyae illaiyae<br /><br />
+      Netru endhan kai valaiyal<br />
+      Isaithathellaam un isaiyae<br /><br />
+      Vaanae nee indru andha<br />
+      Netrugalai kondu va<br /><br />
+      Netru nee irundhaai<br />
+      Unnodu naanum irundhen<br /><br />
+      Irundhaai ..irundhom ..<br /><br />
+      Netru nee irundhaai<br />
+      Unnodu naanum irundhen<br /><br />
+      Aagaayathil nooru nilaakkalum<br />
+      Angangae neela puraakkalum paranthana<br /><br />
+      Alai ellam nee engae engae<br />
+      Endrathu<br />
+      Karai vandhu alai angae yengi nindrathu
+    </div>
+  </div>
+
+  <script>
+    const audio = document.getElementById('audio');
+    const playPauseBtn = document.getElementById('play-pause');
+    let isPlaying = false;
+
+    playPauseBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        audio.pause();
+        playPauseBtn.textContent = '▶️';
+      } else {
+        audio.play();
+        playPauseBtn.textContent = '⏸️';
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
+</body>
+</html>
